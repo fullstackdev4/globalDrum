@@ -1,0 +1,2 @@
+#### Storybook read stories according to the path in `.storybook/main.js`
+#### `npm run storybook`
