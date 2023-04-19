@@ -25,9 +25,9 @@ export const ProtectedRoute = ({
     return <Navigate to={ProtectRedirectTo} />;
   }
 
-  if (!hasPermissions(permissions, givenPermissions)) {
-    return <Navigate to={{ pathname: "/403" }} />;
-  }
+  // if (!hasPermissions(permissions, givenPermissions)) {
+  //   return <Navigate to={{ pathname: "/403" }} />;
+  // }
 
   return children;
 };
