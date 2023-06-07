@@ -13,19 +13,17 @@ import ErrorBoundary from "./errorLogging/index.tsx";
 let persistor = persistStore(store);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <GoogleOAuthProvider
-        clientId={
-          "262658816289-l9pn8b096e10oe2vc4gadgj73cpvtjrj.apps.googleusercontent.com"
-        }
-      >
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <App />
-          </PersistGate>
-        </Provider>
-      </GoogleOAuthProvider>
-    </ErrorBoundary>
-  </React.StrictMode>
+  <ErrorBoundary>
+    <GoogleOAuthProvider
+      clientId={
+        "262658816289-l9pn8b096e10oe2vc4gadgj73cpvtjrj.apps.googleusercontent.com"
+      }
+    >
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
+    </GoogleOAuthProvider>
+  </ErrorBoundary>
 );

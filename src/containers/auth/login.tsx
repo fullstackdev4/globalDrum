@@ -48,7 +48,7 @@ function Login() {
 
   return (
     <div>
-      <h2>React Google Login</h2>
+      <h2>Login with Google</h2>
       <br />
       <br />
       {profile ? (

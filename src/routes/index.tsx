@@ -5,6 +5,7 @@ import { Contact, Dashboard, Login, NoAccess } from "../containers";
 import { RootState } from "../store";
 import { useSelector } from "react-redux";
 import { PERMISSION_NAMES } from "../constants/permissions";
+import RssFeed from "../containers/rssFeed";
 
 const AppRoutes: FC = () => {
   const {
@@ -19,6 +20,9 @@ const AppRoutes: FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/rss-feed" element={<RssFeed />} />
+
         <Route path="/403" element={<NoAccess />} />
 
         <Route
