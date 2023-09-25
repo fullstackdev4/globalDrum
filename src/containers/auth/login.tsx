@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { redirect } from "react-router-dom";
 
 function Login() {
   const [user, setUser] = useState<any>({});
@@ -13,13 +14,13 @@ function Login() {
   const login = useGoogleLogin({
     onSuccess: (codeResponse: any) => {
       console.log(codeResponse, "codeResponse");
+      window.location.href = `https://localhost:5173/login?access_token=${codeResponse?.access_token}`;
       newFu(codeResponse);
     },
     onError: (error) => console.log("Login Failed:", error),
   });
 
   useEffect(() => {
-    console.log(user);
     if (user) {
       axios
         .get(
@@ -32,6 +33,8 @@ function Login() {
           }
         )
         .then((res) => {
+          console.log(res, "res__");
+          redirect("http://localhost:5173/login");
           setProfile(res.data);
         })
         .catch((err) => console.log(err));
